@@ -13,15 +13,18 @@ namespace Quiron.LojaVirtual.Web.Controllers
         private ProdutosRepositorio _repositorio;
         public int _produtosPagina = 8;        
 
-        public ViewResult ListaProdutos(int pagina = 1)
+        public ViewResult ListaProdutos(string categoria, int pagina = 1)
         {
             _repositorio = new ProdutosRepositorio();
             
             ProdutosViewModel model = new ProdutosViewModel
                 {
-                    Produtos = _repositorio.Produtos.OrderBy(p=>p.Descricao).Skip((pagina - 1) * _produtosPagina).
+                    Produtos = _repositorio.Produtos
+                    .Where(p=>p.Categoria==null || p.Categoria==categoria)
+                    .OrderBy(p=>p.Descricao).Skip((pagina - 1) * _produtosPagina).
                     Take(_produtosPagina),
-                    Paginacao = new Paginacao { PaginaAtual = pagina, ItensPorPagina=_produtosPagina, ItensTotal = _repositorio.Produtos.Count()}
+                    Paginacao = new Paginacao { PaginaAtual = pagina, ItensPorPagina=_produtosPagina, ItensTotal = _repositorio.Produtos.Count()},
+                    CategoriaAtual = categoria
                 };
 
             

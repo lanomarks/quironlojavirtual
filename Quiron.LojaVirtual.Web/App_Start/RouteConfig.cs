@@ -13,18 +13,55 @@ namespace Quiron.LojaVirtual.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //1 rota
             routes.MapRoute
                 (
-                name:null,
-                url:"Pagina{pagina}",
-                defaults: new { controller="Vitrine", action="ListaProdutos"}
+                    null,
+                    "",
+                    new
+                    {
+                        controller = "Vitrine",
+                        action = "ListaProdutos",
+                        categoria = (string)null,
+                        pagina = 1
+                    }
                 );
 
-            routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+            //2 rota
+            routes.MapRoute
+                (
+                    null,
+                    "Pagina{pagina}",
+                    new { controller = "Vitrine", action = "ListaProdutos", categoria = (string)null },
+                    new { pagina = @"\d+" }
+                );
+
+            //3 rota
+            routes.MapRoute
+                (
+                name: null,
+                url:"{categoria}",
+                defaults:new
+                {
+                    controller = "Vitrine",
+                    action = "ListaProdutos",
+                    pagina = 1
+                });
+
+            //4 rota
+            routes.MapRoute
+                (
+                    null,
+                    "{categoria}Pagina{pagina}",
+                    new
+                    {
+                        controller = "Vitrine",
+                        action = "ListaProdutos"
+                    },
+                    new { pagina = @"\d+" }
+                );
+
+            routes.MapRoute(null, "{controller}/{action}");
         }
     }
 }

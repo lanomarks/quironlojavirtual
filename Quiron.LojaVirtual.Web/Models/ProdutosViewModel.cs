@@ -11,5 +11,7 @@ namespace Quiron.LojaVirtual.Web.Models
         public IEnumerable<Produtos> Produtos { get; set; }
 
         public Paginacao Paginacao { get; set; }
+
+        public string CategoriaAtual { get; set; }
     }
 }
