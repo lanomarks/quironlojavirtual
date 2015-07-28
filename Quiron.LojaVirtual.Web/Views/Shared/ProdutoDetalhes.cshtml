@@ -9,7 +9,17 @@
     </div>
     <div class="panel-footer right">
         R$ @Model.Preco.ToString()
-        <button type="button" class="btn btn-primary">Comprar</button>
+        <div class="navbar-right">
+            @using (Html.BeginForm("Adicionar", "Carrinho"))
+            {
+                @*<div class="pull-right">*@
+                @Html.HiddenFor(x => x.ProdutoId)
+                @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                <input type="submit" class="btn btn-primary" value="Comprar" />
+                @*</div>*@
+            }
+        </div>
+        @*<button type="button" class="btn btn-primary">Comprar</button>*@
     </div>
     @*<h3 class="col-xs-12"><strong>@Model.Nome</strong></h3>
     <h3><span class="pull-right label label-primary col-xs-3">@Model.Preco.ToString()</span></h3>
