@@ -1,26 +1,57 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @*<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">*@
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
     <title>@ViewBag.Title - Loja Virtual</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/EXAMPLE_ADMIN/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/EXAMPLE_ADMIN/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="~/Content/EXAMPLE_ADMIN/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+    <!-- Timeline CSS -->
+    <link href="~/Content/EXAMPLE_ADMIN/dist/css/timeline.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/Content/EXAMPLE_ADMIN/dist/css/sb-admin-2.css" rel="stylesheet">
+    <!-- Morris Charts CSS -->
+    <link href="~/Content/EXAMPLE_ADMIN/morrisjs/morris.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="~/Content/EXAMPLE_ADMIN/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
 </head>
 <body>
-    <div class="navbar navbar-inverse" role="navigation">
-        <a class="navbar-brand" href="#">Tudo em material esportivo</a>
-    </div>
-    <div class="row panel">
-        <div id="Categorias" class="col-xs-3">
-            minhas categorias
-        </div>
+
+    <div class="row panel col-xs-12">
+        <div id="Categorias" class="panel-body col-xs-3">
+            @Html.Action("Menu", "Categoria")
+        </div>       
         <div id="Panel" class="col-xs-8">
             @RenderBody()
         </div>
     </div>
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="~/Content/EXAMPLE_ADMIN/metisMenu/dist/metisMenu.min.js"></script>
+    <!-- Morris Charts JavaScript -->
+    <script src="~/Content/EXAMPLE_ADMIN/raphael/raphael-min.js"></script>
+    <script src="~/Content/EXAMPLE_ADMIN/morrisjs/morris.min.js"></script>
+    <script src="~/Content/EXAMPLE_ADMIN/js/morris-data.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="~/Content/EXAMPLE_ADMIN/dist/js/sb-admin-2.js"></script>
 </body>
 </html>

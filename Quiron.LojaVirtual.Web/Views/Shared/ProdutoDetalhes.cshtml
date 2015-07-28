@@ -1,7 +1,17 @@
 ﻿@model Quiron.LojaVirtual.Dominio.Entidade.Produtos
 
-<div class="well row">
-    <h3 class="col-xs-12"><strong>@Model.Nome</strong></h3>
+<div class="panel panel-info">
+    <div class="panel-heading">
+        @Model.Nome
+    </div>
+    <div class="panel-body">
+        <p>@Model.Descricao</p>
+    </div>
+    <div class="panel-footer right">
+        R$ @Model.Preco.ToString()
+        <button type="button" class="btn btn-primary">Comprar</button>
+    </div>
+    @*<h3 class="col-xs-12"><strong>@Model.Nome</strong></h3>
     <h3><span class="pull-right label label-primary col-xs-3">@Model.Preco.ToString()</span></h3>
-    <span class="lead col-xs-8">@Model.Descricao</span>
+    <span class="lead col-xs-8">@Model.Descricao</span>*@
 </div>
